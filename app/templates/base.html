@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+      <title>ExpertTalk</title>
+    </head>
+    <body>
+        <div><a href="{{ url_for('index') }}">Home</a></div>
+        <div><a href="{{ url_for('user_data') }}">Schedule a call</a></div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
